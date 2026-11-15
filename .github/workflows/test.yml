@@ -1,0 +1,30 @@
+name: Verify Scanner
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  audit-self-and-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify clean scan on root repo
+        run: node bin/mcp-shield.js .
+
+      - name: Verify detection on vulnerable demo
+        run: |
+          if node bin/mcp-shield.js examples/unsafe-agent; then
+            echo "Expected scanner to flag vulnerable demo!"
+            exit 1
+          else
+            echo "Successfully caught critical vulnerabilities."
+          fi

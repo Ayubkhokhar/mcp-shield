@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "demo-filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."],
+      "env": {
+        "OPENAI_API_KEY": "sk-dummyAuditKey1234567890123456"
+      }
+    }
+  }
+}

@@ -71,7 +71,7 @@ function scanMcpConfig(filePath) {
     const servers = json.mcpServers || json.servers || {};
 
     for (const [name, cfg] of Object.entries(servers)) {
-      const cmd = `${cfg.command \vert{}\vert{} ''}${(cfg.args || []).join(' ')}`.trim();
+      const cmd = `${cfg.command || ''}${(cfg.args || []).join(' ')}`.trim();
 
       // Check unpinned npx execution
       if (cmd.includes('npx') && !cmd.includes('@') && !cmd.includes('-y')) {
@@ -108,7 +108,7 @@ function walkSkillsAndRules(dir, depth = 0) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
 
   for (const entry of entries) {
-    if (['node_modules', '.git', 'vendor', 'dist', 'build'].includes(entry.name)) continue;
+    if (['node_modules', '.git', 'vendor', 'dist', 'build', 'examples'].includes(entry.name)) continue;
     const fullPath = path.join(dir, entry.name);
 
     if (entry.isDirectory()) {
