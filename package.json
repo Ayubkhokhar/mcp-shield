@@ -1,0 +1,28 @@
+{
+  "name": "mcp-shield",
+  "version": "1.0.0",
+  "description": "Zero-dependency security auditor for local MCP servers, AI agent skills, and IDE configs.",
+  "main": "bin/mcp-shield.js",
+  "bin": {
+    "mcp-shield": "./bin/mcp-shield.js"
+  },
+  "scripts": {
+    "start": "node bin/mcp-shield.js",
+    "scan": "node bin/mcp-shield.js ."
+  },
+  "keywords": [
+    "mcp",
+    "ai-agents",
+    "security",
+    "claude-code",
+    "cursor",
+    "cline",
+    "skill-md",
+    "audit"
+  ],
+  "author": "Ayub Khokhar",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
